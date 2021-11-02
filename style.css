@@ -1,0 +1,6 @@
+.button-neu {
+    border-radius: 25px;
+    background: #ffffff;
+    box-shadow:  13px 13px 48px #cccccc,
+                 -13px -13px 48px #ffffff;
+}
