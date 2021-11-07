@@ -28,10 +28,13 @@ allClearBtn.addEventListener("click", () => {
   clear();
   display();
 });
-
+equalBtn.addEventListener("click",()=>{
+  compute();
+  display();
+})
 function display() {
   currentText.textContent = currentValue;
-  oldText.textContent = `${oldValue} ${operator}`  
+  oldText.textContent = `${oldValue} ${operator}`;
 }
 function appendNumber(newNumber) {
   if (newNumber === "." && currentValue.includes(".")) return;
@@ -43,8 +46,37 @@ function clear() {
   operator = "";
 }
 function chooseOperation(newOperator) {
-  if(currentValue==="") return;
+  if (currentValue === "") return;
+  if(oldValue!==""){
+    compute();
+  }
   operator = newOperator;
-  oldValue=currentValue;
-  currentValue="";
+  oldValue = currentValue;
+  currentValue = "";
+}
+function compute() {
+  let answer;
+  const previous = parseFloat(oldValue);
+  const current = parseFloat(currentValue);
+  if (isNaN(previous) || isNaN(current)) return;
+
+  switch (operator) {
+    case "+":
+      answer = previous + current;
+      break;
+    case "-":
+      answer = previous - current;
+      break;
+    case "x":
+      answer = previous * current;
+      break;
+    case "/":
+      answer = previous / current;
+      break;
+    default:
+      return;
+  }
+  currentValue=answer;
+  operator="";
+  oldValue="";
 }
