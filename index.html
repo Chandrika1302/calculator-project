@@ -2,46 +2,48 @@
 <html>
   <head>
     <title>calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+
     <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="bg-black bg-opacity-40">
-    <button id="add-btn">add</button>
 
-    <div class="">
+    <div class="mx-auto w-1/4 border-4 border-blue-100 rounded-2xl   
+    button-neu mt-32 font-serif font-bold">
+        <div class="bg-blue-100 shadow-inner rounded-lg px-6 pt-4 grid grid-rows-2 grid-flow-col place-content-end border-2 border-blue-200 col-span-4 mt-6 mx-8">
+          <div class="previous-value pb-2" data-previous></div>
+          <div class="current-value" data-current></div>
+      </div>
       <div
         class="
-          grid grid-rows-6 grid-flow-col
+          grid grid-rows-5 grid-flow-col
           gap-x-6 gap-y-6
           justify-center
           place-content-center
-          mx-auto w-1/4 mt-32 py-6
-          border-4 border-blue-100 rounded-2xl   
-          button-neu     
+          mt-2 py-6 
         "
       >
-        <div class="ans-screen bg-blue-100 shadow-inner  rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 col-span-4"></div>
-        <div class="delete-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 col-span-2 hover:bg-blue-300">Delete</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">7</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">4</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">1</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">.</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">8</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">5</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">2</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">0</div>
-        <div class="clear-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 col-span-2 hover:bg-blue-300">Clear</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">9</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">6</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">3</div>
-        <div class="equal-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">=</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">/</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">x</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">-</div>
-        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300">+ </div>
+        <div class="delete-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 col-span-2 hover:bg-blue-300" data-delete>Delete</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>7</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>4</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>1</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>.</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>8</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>5</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>2</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>0</div>
+        <div class="clear-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 col-span-2 hover:bg-blue-300" data-clear>Clear</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>9</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>6</div>
+        <div class="calci-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-number>3</div>
+        <div class="equal-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-equals>=</div>
+        <div class="operation-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-operation>/</div>
+        <div class="operation-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-operation>x</div>
+        <div class="operation-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-operation>-</div>
+        <div class="operation-btn bg-blue-100 shadow-inner rounded-lg px-6 py-4 grid place-content-center border-2 border-blue-200 hover:bg-blue-300" data-operation>+ </div>
       </div> 
     </div>
 
