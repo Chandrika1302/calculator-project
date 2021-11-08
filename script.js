@@ -31,6 +31,10 @@ allClearBtn.addEventListener("click", () => {
 equalBtn.addEventListener("click",()=>{
   compute();
   display();
+});
+deleteBtn.addEventListener("click",()=>{
+  currentValue=currentValue.toString().slice(0,-1);
+  display();
 })
 function display() {
   currentText.textContent = currentValue;
